@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noxus — Bot de Discord para comunidades de League of Legends</title>
+<meta name="description" content="Noxus es un bot de Discord para gestionar comunidades: moderación, tickets, registros, niveles y, próximamente, vinculación de cuentas de Riot, rangos y búsqueda de compañeros de League of Legends.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site"><div class="wrap">
+  <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">N</span>NOXUS</a>
+  <nav class="links" aria-label="Principal">
+    <a href="index.html" aria-current="page">Inicio</a>
+    <a href="#riot">League of Legends</a>
+    <a href="terms.html">Condiciones</a>
+    <a href="privacy.html">Privacidad</a>
+  </nav>
+</div></header>
+
+<main class="wrap" id="contenido">
+  <section class="hero">
+    <p class="eyebrow">Bot de Discord · comunidad hispanohablante de LoL</p>
+    <h1>Noxus</h1>
+    <p class="lead">Un bot para gestionar comunidades de Discord: moderación, tickets, registros, niveles y paneles personalizables. Estamos preparando la integración con League of Legends para vincular cuentas, asignar roles por rango y encontrar compañeros de partida.</p>
+    <div class="actions">
+      <a class="button primary" href="https://discord.com/oauth2/authorize?client_id=1560483062825877545&amp;scope=bot+applications.commands&amp;integration_type=0&amp;permissions=0" rel="noopener">Añadir a Discord</a>
+      <a class="button" href="#riot">Integración con Riot</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="sobre">
+    <h2 id="sobre">Sobre Noxus</h2>
+    <p>Noxus nace para la comunidad NOXUS CENTER y está pensado para servidores de League of Legends. Cada servidor activa solo los módulos que necesita desde un panel web; para entrar al panel se inicia sesión con Discord y Noxus comprueba en cada acción que tienes permisos para administrar ese servidor.</p>
+    <p><strong>Contacto:</strong> para soporte, privacidad o dudas, abre un ticket en el servidor oficial de Noxus (NOXUS CENTER) o habla con el staff del servidor donde uses el bot.</p>
+  </section>
+
+  <section aria-labelledby="funciones">
+    <h2 id="funciones">Qué hace hoy</h2>
+    <div class="grid">
+      <div class="card"><span class="icon" aria-hidden="true">🛡️</span><h3>Moderación</h3><p>Avisos, silencios, expulsiones y baneos con historial, reglas de escalado y log de sanciones en un canal de Discord.</p></div>
+      <div class="card"><span class="icon" aria-hidden="true">📜</span><h3>Registros y anti-raids</h3><p>Entradas, salidas, cambios de foto de perfil, mensajes editados o borrados y protección frente a raids.</p></div>
+      <div class="card"><span class="icon" aria-hidden="true">🎫</span><h3>Tickets</h3><p>Tipos de ticket, asignación al staff y transcripciones al cerrar.</p></div>
+      <div class="card"><span class="icon" aria-hidden="true">📈</span><h3>Experiencia y niveles</h3><p>XP por actividad, avisos de subida de nivel en embed y roles de recompensa.</p></div>
+      <div class="card"><span class="icon" aria-hidden="true">👋</span><h3>Bienvenidas y despedidas</h3><p>Mensajes y embeds personalizados, roles de color, ventajas de Nitro Boost y autorol.</p></div>
+      <div class="card"><span class="icon" aria-hidden="true">🔊</span><h3>Voz y música</h3><p>Salas de voz temporales con panel de control y reproductor de música.</p></div>
+    </div>
+  </section>
+
+  <section id="riot" aria-labelledby="riot-title">
+    <div class="riot">
+      <span class="badge">En desarrollo</span>
+      <h2 id="riot-title">Integración con League of Legends</h2>
+      <p>Queremos que los miembros de la comunidad muestren su cuenta de LoL, tengan su rol de rango actualizado y encuentren compañeros de su nivel sin salir de Discord. Esta integración usará la API oficial de Riot Games y todavía no está activa.</p>
+      <h3>Cómo funcionará</h3>
+      <ol>
+        <li><strong>Vincular cuenta:</strong> el jugador escribe su Riot ID (<code>Nombre#TAG</code>) en el canal de vinculación. Noxus obtiene su PUUID y verifica que la cuenta es suya pidiéndole que ponga durante unos minutos un icono de invocador concreto.</li>
+        <li><strong>Rol de rango:</strong> con la cuenta verificada, Noxus consulta su clasificación (Solo/Dúo y Flex) y le asigna el rol correspondiente (Hierro a Retador). El rango se actualiza como máximo una vez al día.</li>
+        <li><strong>Buscar compañeros:</strong> un comando publica una búsqueda con cola, posición y rango para que otros jugadores compatibles se unan.</li>
+        <li><strong>Desvincular:</strong> el jugador puede desvincular su cuenta cuando quiera; se borran su Riot ID, su PUUID y su rango guardados.</li>
+      </ol>
+      <h3>APIs de Riot que usaremos</h3>
+      <table>
+        <thead><tr><th>API</th><th>Para qué</th></tr></thead>
+        <tbody>
+          <tr><td><code>ACCOUNT-V1</code></td><td>Convertir el Riot ID en PUUID.</td></tr>
+          <tr><td><code>SUMMONER-V4</code></td><td>Comprobar el icono de invocador durante la verificación.</td></tr>
+          <tr><td><code>LEAGUE-V4</code></td><td>Consultar el rango para asignar roles y filtrar búsquedas.</td></tr>
+        </tbody>
+      </table>
+      <p class="note" style="margin-top:14px">Noxus nunca te pedirá la contraseña de tu cuenta de Riot ni ningún dato privado. La clave de la API solo se usa desde el servidor del bot y nunca se muestra a los usuarios. Noxus es gratuito y respeta los límites de peticiones de Riot.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="docs">
+    <h2 id="docs">Documentos</h2>
+    <ul>
+      <li><a href="terms.html">Condiciones de Servicio</a></li>
+      <li><a href="privacy.html">Política de Privacidad</a></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="english" lang="en">
+    <h2 id="english">About Noxus (English)</h2>
+    <p>Noxus is a free Discord bot for Spanish-speaking League of Legends communities. It already provides moderation, tickets, server logs, XP levels and customizable panels. We are building a League of Legends integration that lets members link their Riot account (Riot ID → PUUID through ACCOUNT-V1, ownership verified by a temporary profile icon through SUMMONER-V4), receive a rank role from LEAGUE-V4 refreshed at most once a day, and find teammates of a similar rank. Players can unlink at any time, which deletes their stored Riot data. We never ask for Riot passwords and the API key is only used server-side.</p>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap">
+  <div class="row"><span>NOXUS · Bot de Discord</span><span><a href="terms.html">Condiciones</a> · <a href="privacy.html">Privacidad</a></span></div>
+  <p class="legal">Noxus isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc. Noxus no está afiliado a Discord Inc.</p>
+  <p class="legal">Última actualización: 11 de noviembre de 2026</p>
+</div></footer>
+</body>
+</html>
